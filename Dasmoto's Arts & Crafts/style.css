@@ -1,0 +1,24 @@
+body{
+  padding-top: 10px;
+}
+
+h1, h2, .mark-text{
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+h1.title{
+  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-2/pattern.jpeg");
+  font-size: 100px;
+  color: khaki;
+  text-align: center;
+}
+
+h2.under-title{
+  font-size: 32px;
+  color: white;
+}
+
+.mark-text{
+  color:blue;
+}
