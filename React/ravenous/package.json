@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-google-autocomplete": "^1.0.18",
     "react-scripts": "2.1.8",
     "whatwg-fetch": "^3.0.0"
   },

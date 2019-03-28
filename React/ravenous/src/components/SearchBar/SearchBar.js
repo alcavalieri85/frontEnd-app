@@ -1,12 +1,12 @@
 import React from 'react';
 import './SearchBar.css';
-import {searchAsync} from '../../util/Yelp'; 
+import Autocomplete from 'react-google-autocomplete';
 
 const sortByOptions = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
     'Most Reviewed': 'review_count',
-    "Distance": 'distance'
+    'Distance': 'distance'
 };
 
 
@@ -57,7 +57,7 @@ class SearchBar extends React.Component{
         this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
         event.preventDefault();
     }
-    
+
 
     renderSortByOptions() {
         //return the kyes of the object
@@ -85,7 +85,13 @@ class SearchBar extends React.Component{
                 </div>
                 <div className="SearchBar-fields">
                     <input onChange={this.handleTermChange} placeholder="Search Businesses" />
-                    <input onChange={this.handleLocationChange} placeholder="Where?" />
+                    <Autocomplete
+                        onChange={this.handleLocationChange}
+                        placeholder="Where?"                        
+                        onPlaceSelected={(place) => {
+                        console.log(place);
+                        }}
+                    />
                 </div>
                 <div className="SearchBar-submit">
                     <a onClick={this.handleSearch}>Let's Go</a>
