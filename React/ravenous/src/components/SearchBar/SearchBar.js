@@ -1,6 +1,6 @@
-// eslint-disable-next-line
 import React from 'react';
 import './SearchBar.css';
+import {searchAsync} from '../../util/Yelp'; 
 
 const sortByOptions = {
     'Best Match': 'best_match',
@@ -33,7 +33,11 @@ class SearchBar extends React.Component{
     }
     
     handleSortByChange(sortByOption) {
-        this.setState({ sortBy: sortByOption});
+        this.setState({ sortBy: sortByOption}, () => {
+            if((this.state.term !== '') && (this.state.location !== '')){
+                this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+            }
+        });       
     }
 
     handleTermChange(event){
